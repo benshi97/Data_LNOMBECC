@@ -1,0 +1,18 @@
+\begin{table}[h]
+
+\caption{\label{tab:anthracene_lno_costs}Computational walltime and memory requirements for LNO-CCSD(T) calculations on a dimer and trimer of anthracene with various LNO thresholds. These estimates are given for a calculation involving 32 cores on an Intel Icelake node with 400 GB of available memory.}
+\begin{tabular}{lrrrrrrr}
+\toprule
+ &  & Loose & Normal & Tight & vTight & vvTight \\ 
+System & Metric &  &  &  &  &  \\
+\midrule
+\multirow[c]{2}{*}{Dimer} & Walltime (min) & 121 & 233 & 763 & 2473 & 7005 \\
+ & Memory (Mb) & 1328 & 3517 & 10696 & 26351 & 52202 \\
+\cline{1-7}
+\multirow[c]{2}{*}{Trimer} & Walltime (min) & 465 & 840 & 2595 & 9493 & 33822 \\
+ & Memory (Mb) & 1524 & 4652 & 15618 & 42048 & 90182 \\
+\cline{1-7}
+\bottomrule
+\end{tabular}
+
+\end{table}
