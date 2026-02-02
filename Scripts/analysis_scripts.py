@@ -116,7 +116,9 @@ def get_qe_walltime(filename):
         
         return total_hours
 
-    with open(filename, 'r') as f:
+    open_func = gzip.open if filename.endswith((".gz", ".gzip")) else open
+
+    with open_func(filename, "rt") as f:
         lines = f.readlines()
 
     # Check if 'PWSCF' is in lines[-8].split()[0]
