@@ -9,7 +9,7 @@ import pandas as pd
 import re
 import pyblock
 import gzip
-
+import tempfile
 
 from ase.db import connect
 from ase.units import kcal, kJ, mol, Hartree
@@ -46,13 +46,16 @@ def reverse_search_for(lines_obj, keys, line_start=0):
 
 # Read Total time                                  : from output file
 def read_total_time_from_aims_output_file(rundir):
-    with open(rundir) as f:
+    open_func = gzip.open if rundir.endswith((".gz", ".gzip")) else open
+
+    with open_func(rundir, "rt") as f:
         lines = f.readlines()
 
-        line_start = reverse_search_for(lines, ["Total time                                  :"])
+    line_start = reverse_search_for(
+        lines, ["Total time                                  :"]
+    )
 
-        time = float(lines[line_start].split()[-2])
-        
+    time = float(lines[line_start].split()[-2])
     return time
 
 
@@ -193,6 +196,50 @@ def get_vasp_energy(filename):
                 return float(line.split()[-1])
 
     raise ValueError(f"VASP energy not found in file: {filename}")
+
+
+def read_aims_output_gz(path, **read_kwargs):
+    """
+    Read an AIMS output .gz file into an ASE Atoms object using ASE's aims-output parser.
+
+    This writes the decompressed text to a temporary file because some ASE parsers
+    require a real file descriptor / filename rather than StringIO-like objects.
+
+    Parameters
+    ----------
+    path : str
+        Path to the aims .out.gz file.
+    read_kwargs : dict
+        Extra kwargs passed to ase.io.read (e.g., index=0)
+
+    Returns
+    -------
+    Atoms or list[Atoms]
+    """
+    # Create a temporary file; delete=False so we can reopen it on all platforms.
+    tmp = tempfile.NamedTemporaryFile(mode="wb", delete=False, suffix=".out", prefix="ase_aims_")
+    tmp_name = tmp.name
+    try:
+        # Decompress into the temp file as bytes (UTF-8 encoded)
+        with gzip.open(path, "rb") as gz:
+            # Read in chunks to avoid huge memory spikes for very large files
+            while True:
+                chunk = gz.read(2 ** 20)
+                if not chunk:
+                    break
+                tmp.write(chunk)
+        tmp.flush()
+        tmp.close()
+
+        # Now pass the filename to ase.io.read — ASE will happily open it.
+        atoms = read(tmp_name, format="aims-output", **read_kwargs)
+        return atoms
+    finally:
+        # Clean up the temp file
+        try:
+            os.remove(tmp_name)
+        except OSError:
+            pass
 
     
 
