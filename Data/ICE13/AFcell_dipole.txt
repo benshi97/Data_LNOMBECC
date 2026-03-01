@@ -1,0 +1,5 @@
+Ih (16 molecules):   0.01 Debye 
+III (12 molecules):   0.19 Debye 
+IV (16 molecules):   8.57 Debye 
+VII (16 molecules):   0.27 Debye 
+XVII (12 molecules):   0.24 Debye 
