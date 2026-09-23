@@ -3,3 +3,6 @@ __pycache__/
 Scripts/__pycache__/
 *.pyc
 *.py[cod]
+
+# macOS Finder metadata
+.DS_Store
