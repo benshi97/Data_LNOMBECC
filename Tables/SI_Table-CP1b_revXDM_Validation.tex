@@ -1,0 +1,61 @@
+\providecommand{\rotateheader}[1]{\rotatebox{90}{#1}}
+{\setlength{\tabcolsep}{5pt}
+\edef\savedLTchunksize{\the\LTchunksize}
+\setcounter{LTchunksize}{5}
+\renewcommand{\arraystretch}{1.1}
+\LTcapwidth=\textwidth
+\begin{longtable}{lrrrrr}
+\caption{\label{tab:cp1b_revxdm_validation}CP1b conformational energies relative to each species' DLPNO-CCSD(T0)/CBS zero-reference conformer, using the same reference conformer for every DFT method. All values, including the MAD, are in kJ/mol. Only the 34 non-zero-reference conformers are shown; the 20 zero anchors are omitted. B86bPBE50-revXDM uses XDM parameters 0.74 and 1.72; the other XDM methods use their default parameters. Basis sets are indicated in the headers.} \\
+\toprule
+ & \rotateheader{DLPNO-CCSD(T)} & \rotateheader{B86bPBE50-revXDM (lightdense)} & \rotateheader{B86bPBE-XDM (tight)} & \rotateheader{PBE-D3(BJ) (tight)} \\
+\midrule
+\endfirsthead
+\caption[]{(continued)} \\
+\toprule
+ & \rotateheader{DLPNO-CCSD(T)} & \rotateheader{B86bPBE50-revXDM (lightdense)} & \rotateheader{B86bPBE-XDM (tight)} & \rotateheader{PBE-D3(BJ) (tight)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{Continued on next page} \\
+\endfoot
+\bottomrule
+\endlastfoot
+ACBNZA01\_monA & 53.87 & 61.09 & 60.35 & 62.16 \\
+CELBEA02\_monA & 19.29 & 27.09 & 20.38 & 20.95 \\
+CELBEA\_monA & 23.17 & 29.29 & 23.40 & 24.01 \\
+CIMETD01\_monA & 27.85 & 26.51 & 30.76 & 31.31 \\
+EYOCUQ01\_monA & 2.51 & 1.98 & 5.59 & 4.70 \\
+EYOCUQ\_monA & 6.45 & 6.91 & 8.71 & 7.19 \\
+GLUCIT02\_monB & 9.05 & 10.17 & 9.98 & 9.26 \\
+GLUCIT03\_monA & 12.78 & 14.37 & 13.77 & 12.62 \\
+GLUCIT03\_monB & 5.39 & 5.94 & 5.91 & 5.09 \\
+GLUCIT03\_monC & 21.23 & 23.10 & 19.82 & 19.10 \\
+GLUCIT04\_monA & 13.22 & 16.97 & 15.29 & 13.76 \\
+HAXHET\_monA & 7.23 & 8.29 & 10.23 & 10.11 \\
+ICIMAI01\_monA & 8.42 & 3.98 & 9.13 & 8.44 \\
+JAYCES\_monA & 11.24 & 17.54 & 13.23 & 11.46 \\
+KIJBOX\_monA & 11.38 & 8.76 & 2.30 & 1.06 \\
+MCHTEP07\_monA & 2.26 & -0.60 & -5.60 & -6.30 \\
+MCHTEP11\_monA & 49.27 & 51.83 & 62.66 & 63.67 \\
+\pagebreak
+MCHTEP11\_monB & 53.40 & 55.21 & 67.54 & 68.67 \\
+MELVEE01\_monA & 16.42 & 17.09 & 19.32 & 18.46 \\
+MIQKOM\_monA & 8.52 & 13.77 & 14.34 & 12.58 \\
+MNIAAN02\_monA & 1.67 & 2.42 & 0.03 & 0.01 \\
+MNIAAN11\_monA & 29.89 & 39.09 & 41.12 & 42.55 \\
+MNIAAN12\_monA & 2.04 & 2.68 & 2.56 & 2.66 \\
+QUBPAF01\_monA & 39.80 & 44.28 & 38.67 & 36.86 \\
+QUBPAF02\_monA & 41.41 & 43.30 & 41.85 & 39.73 \\
+TOHBUN02\_monA & 28.89 & 33.19 & 31.96 & 32.84 \\
+TTHCTD01\_monA & 13.51 & 17.45 & 13.26 & 13.16 \\
+TTHCTD01\_monB & 1.20 & 1.06 & -0.39 & -0.39 \\
+UFAGIS01\_monA & 1.72 & 3.00 & 1.40 & 1.41 \\
+UFAGIS\_monA & 18.58 & 19.66 & 11.14 & 9.99 \\
+WUCGUW02\_monA & 7.13 & 7.59 & 7.69 & 6.93 \\
+WUCGUW\_monB & 9.13 & 9.09 & 9.35 & 8.86 \\
+YIGPIO03\_monA & 26.88 & 31.70 & 25.26 & 22.69 \\
+ZEYBIO04\_monA & 10.79 & 13.84 & 9.89 & 9.80 \\
+MAD & -- & 2.82 & 3.29 & 3.48 \\
+\end{longtable}
+\setcounter{LTchunksize}{\savedLTchunksize}
+}
