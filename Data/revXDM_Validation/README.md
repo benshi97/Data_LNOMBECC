@@ -1,11 +1,10 @@
 # revXDM validation outputs
 
 S66 and CP1b contain `{system}/aims_{revXDM,b86bpbe,pbed3}.out.gz`.
-G60 contains `{system}/{method}/{crystal,molecule}/` with one gzip output per
-folder: `aims_revXDM.out.gz` for `01-b86bpbe50-xdm074-lightdense`,
-`aims_b86bpbe.out.gz` for `03-b86bpbe-xdmdefault-tight`, and
-`aims_pbed3.out.gz` for `04-pbe-d3bj-tight`. B86bPBE-50 with default XDM
-(`02-...`) is not included.
+G60 contains `{system}/{crystal,molecule}/aims_{revXDM,b86bpbe,pbed3}.out.gz`,
+so each crystal and molecule folder contains all three methods. The filenames
+denote B86bPBE50-revXDM (lightdense), B86bPBE-XDM (tight), and PBE-D3(BJ)
+(tight), respectively. B86bPBE-50 with default XDM is not included.
 Each G60 file is directly gzip-compressed, with no tar layer. The source
 calculations remain unchanged on Popeye. `methods.npy` maps the S66/CP1b output
 indices to their functional, dispersion parameters, and basis.
